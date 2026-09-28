@@ -1,0 +1,6 @@
+{
+  "name": "Kessel Electronics Store",
+  "description": "Plateforme e-commerce haut de gamme d'appareils électroniques (machines, téléphones, ampoules LED, ventilateurs) créée par LONTIO KESSEL avec commande directe WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
