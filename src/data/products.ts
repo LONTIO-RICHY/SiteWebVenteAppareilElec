@@ -1,37 +1,49 @@
 import { Product, CategoryInfo } from '../types/index.ts';
 
+// Chargement des images via Vite (compatible déploiement Vercel)
+const images = import.meta.glob('../assets/images/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+const img = (name: string): string => {
+  const key = Object.keys(images).find((k) => k.includes(name));
+  return key ? images[key] : '';
+};
+
 // 20 DEDICATED, EXCLUSIVE STUDIO PRODUCT PHOTOGRAPHS (ZERO REUSE)
-export const HERO_IMAGE = '/src/assets/images/hero_electronics_store_1790568414467.jpg';
+export const HERO_IMAGE = img('hero_electronics_store_1790568414467');
 
 // Rayon 1 : Ventilateurs (4 images uniques)
-export const IMG_TOWER_FAN = '/src/assets/images/product_standing_fan_1790568461324.jpg';
-export const IMG_INDUSTRIAL_FAN = '/src/assets/images/product_industrial_floor_fan_1790569551672.jpg';
-export const IMG_SOLAR_FAN = '/src/assets/images/product_solar_standing_fan_1790570590380.jpg';
-export const IMG_CEILING_FAN = '/src/assets/images/product_modern_ceiling_fan_1790570601269.jpg';
+export const IMG_TOWER_FAN = img('product_standing_fan_1790568461324');
+export const IMG_INDUSTRIAL_FAN = img('product_industrial_floor_fan_1790569551672');
+export const IMG_SOLAR_FAN = img('product_solar_standing_fan_1790570590380');
+export const IMG_CEILING_FAN = img('product_modern_ceiling_fan_1790570601269');
 
 // Rayon 2 : Réfrigérateurs & Congélateurs (4 images uniques)
-export const IMG_FRIDGE_FRENCH_DOOR = '/src/assets/images/product_smart_refrigerator_1790570133747.jpg';
-export const IMG_FRIDGE_BOTTOM_FREEZER = '/src/assets/images/product_bottom_freezer_fridge_1790570557467.jpg';
-export const IMG_FRIDGE_MINI_BAR = '/src/assets/images/product_mini_bar_fridge_1790570568296.jpg';
-export const IMG_FRIDGE_CHEST_FREEZER = '/src/assets/images/product_chest_freezer_1790570580180.jpg';
+export const IMG_FRIDGE_FRENCH_DOOR = img('product_smart_refrigerator_1790570133747');
+export const IMG_FRIDGE_BOTTOM_FREEZER = img('product_bottom_freezer_fridge_1790570557467');
+export const IMG_FRIDGE_MINI_BAR = img('product_mini_bar_fridge_1790570568296');
+export const IMG_FRIDGE_CHEST_FREEZER = img('product_chest_freezer_1790570580180');
 
 // Rayon 3 : Téléphones & Smartphones (4 images uniques)
-export const IMG_PHONE_SAMSUNG = '/src/assets/images/product_flagship_phone_1790568440516.jpg';
-export const IMG_PHONE_IPHONE = '/src/assets/images/product_apple_iphone_1790569563780.jpg';
-export const IMG_PHONE_XIAOMI = '/src/assets/images/product_xiaomi_phone_1790570850066.jpg';
-export const IMG_PHONE_ARMOR = '/src/assets/images/product_rugged_armor_phone_1790570862545.jpg';
+export const IMG_PHONE_SAMSUNG = img('product_flagship_phone_1790568440516');
+export const IMG_PHONE_IPHONE = img('product_apple_iphone_1790569563780');
+export const IMG_PHONE_XIAOMI = img('product_xiaomi_phone_1790570850066');
+export const IMG_PHONE_ARMOR = img('product_rugged_armor_phone_1790570862545');
 
 // Rayon 4 : Ampoules & Éclairage (4 images uniques)
-export const IMG_SMART_BULB = '/src/assets/images/product_smart_bulb_1790568449604.jpg';
-export const IMG_VINTAGE_BULB = '/src/assets/images/product_vintage_edison_bulb_1790569514559.jpg';
-export const IMG_SOLAR_LIGHT = '/src/assets/images/product_solar_led_projector_1790569527371.jpg';
-export const IMG_LED_TUBE = '/src/assets/images/product_led_tube_light_1790570838792.jpg';
+export const IMG_SMART_BULB = img('product_smart_bulb_1790568449604');
+export const IMG_VINTAGE_BULB = img('product_vintage_edison_bulb_1790569514559');
+export const IMG_SOLAR_LIGHT = img('product_solar_led_projector_1790569527371');
+export const IMG_LED_TUBE = img('product_led_tube_light_1790570838792');
 
 // Rayon 5 : Machines & Informatique (4 images uniques)
-export const IMG_ULTRABOOK = '/src/assets/images/product_ultrabook_pro_1790568428874.jpg';
-export const IMG_WORKSTATION = '/src/assets/images/product_pc_workstation_1790569416304.jpg';
-export const IMG_WASHING_MACHINE = '/src/assets/images/product_smart_washing_machine_1790569540313.jpg';
-export const IMG_MINI_PC = '/src/assets/images/product_mini_pc_compact_1790570872915.jpg';
+export const IMG_ULTRABOOK = img('product_ultrabook_pro_1790568428874');
+export const IMG_WORKSTATION = img('product_pc_workstation_1790569416304');
+export const IMG_WASHING_MACHINE = img('product_smart_washing_machine_1790569540313');
+export const IMG_MINI_PC = img('product_mini_pc_compact_1790570872915');
 
 export const CATEGORIES_DATA: CategoryInfo[] = [
   {
